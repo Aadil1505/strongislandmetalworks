@@ -5,20 +5,31 @@ import { motion, useInView } from "motion/react";
 import { ArrowRight, ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const isInView = useInView(videoRef, { amount: 0.5 });
+  // Desktop full-bleed video
+  const desktopRef = useRef<HTMLVideoElement>(null);
+  const desktopInView = useInView(desktopRef, { amount: 0.5 });
+
+  // Mobile card video
+  const mobileRef = useRef<HTMLVideoElement>(null);
+  const mobileInView = useInView(mobileRef, { amount: 0.3 });
 
   useEffect(() => {
-    if (isInView) videoRef.current?.play();
-    else videoRef.current?.pause();
-  }, [isInView]);
+    if (desktopInView) desktopRef.current?.play();
+    else desktopRef.current?.pause();
+  }, [desktopInView]);
+
+  useEffect(() => {
+    if (mobileInView) mobileRef.current?.play();
+    else mobileRef.current?.pause();
+  }, [mobileInView]);
 
   return (
-    <section className="relative h-screen flex flex-col overflow-hidden">
-      {/* Background video */}
-      <div className="absolute inset-0">
+    <section className="relative overflow-hidden md:h-dvh">
+
+      {/* Desktop: full-bleed video background */}
+      <div className="hidden md:block absolute inset-0">
         <video
-          ref={videoRef}
+          ref={desktopRef}
           src="/videos/hero.mp4"
           muted
           loop
@@ -29,8 +40,8 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-72 bg-linear-to-t from-background via-background/60 to-transparent" />
       </div>
 
-      {/* Content — anchored to bottom-left */}
-      <div className="relative z-10 flex flex-col justify-end flex-1 max-w-7xl mx-auto w-full px-6 md:px-10 pb-20">
+      {/* Content wrapper — stacked on mobile, bottom-anchored on desktop */}
+      <div className="relative z-10 flex flex-col pt-28 pb-12 md:pb-0 md:h-full md:justify-end max-w-7xl mx-auto w-full px-6 md:px-10 md:pt-0">
 
         {/* Eyebrow */}
         <motion.div
@@ -52,7 +63,7 @@ export default function HeroSection() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
             className="font-heading font-bold leading-[0.88] tracking-tight text-foreground"
-            style={{ fontSize: "clamp(3.25rem, 10vw, 7.5rem)" }}
+            style={{ fontSize: "clamp(3rem, 10vw, 7.5rem)" }}
           >
             Strong Island
             <br />
@@ -60,7 +71,7 @@ export default function HeroSection() {
           </motion.h1>
         </div>
 
-        {/* Rule + descriptor row */}
+        {/* Rule + descriptor + CTA */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,7 +82,6 @@ export default function HeroSection() {
             Custom gates, railings, fencing, and ornamental ironwork —
             precision fabricated on Long Island.
           </p>
-
           <div className="flex items-center gap-5 shrink-0">
             <a
               href="#contact"
@@ -89,20 +99,36 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Bottom info strip */}
+        {/* Mobile: video card */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.7 }}
+          className="md:hidden mt-8 relative aspect-video rounded-sm overflow-hidden bg-muted"
+        >
+          <video
+            ref={mobileRef}
+            src="/videos/hero.mp4"
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </motion.div>
+
+        {/* Info strip */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className="mt-9 pt-5 border-t border-border/20 flex items-center gap-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50"
+          className="mt-9 pt-5 border-t border-border/20 flex items-center gap-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 md:mb-0 mb-0"
         >
           <span>Nassau County</span>
           <span className="w-px h-3 bg-border/40 shrink-0" />
           <span>500+ Projects</span>
           <span className="w-px h-3 bg-border/40 shrink-0" />
           <span>Licensed &amp; Insured</span>
-
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto hidden md:flex items-center gap-2">
             <motion.div
               animate={{ y: [0, 5, 0] }}
               transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
@@ -112,6 +138,7 @@ export default function HeroSection() {
             <span>Scroll</span>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
