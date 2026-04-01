@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ExternalLink, Globe } from "lucide-react";
+import { InstagramIcon, FacebookIcon } from "@/components/ui/social-icons";
 import { COMPANY } from "@/lib/constants";
 
 const NAV_LINKS = [
@@ -44,7 +44,7 @@ export default function Footer() {
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
-                <Globe className="h-5 w-5" />
+                <InstagramIcon className="h-5 w-5" />
               </a>
               <a
                 href={COMPANY.social.facebook}
@@ -53,7 +53,7 @@ export default function Footer() {
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Facebook"
               >
-                <ExternalLink className="h-5 w-5" />
+                <FacebookIcon className="h-5 w-5" />
               </a>
             </div>
           </div>

@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { MapPin, Globe, ExternalLink, Send, CheckCircle, PersonStandingIcon } from "lucide-react";
+import { MapPin, Send, CheckCircle } from "lucide-react";
+import { InstagramIcon, FacebookIcon } from "@/components/ui/social-icons";
 import { COMPANY } from "@/lib/constants";
 
 const SERVICES = [
@@ -102,10 +103,7 @@ export default function ContactSection() {
               {/* Instagram */}
               <div className="flex items-start gap-4">
                 <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <PersonStandingIcon
-                    className="h-4 w-4 text-primary"
-                    strokeWidth={1.5}
-                  />
+                  <InstagramIcon className="h-4 w-4 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">
@@ -125,10 +123,7 @@ export default function ContactSection() {
               {/* Facebook */}
               <div className="flex items-start gap-4">
                 <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <PersonStandingIcon
-                    className="h-4 w-4 text-primary"
-                    strokeWidth={1.5}
-                  />
+                  <FacebookIcon className="h-4 w-4 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, PersonStandingIcon } from "lucide-react";
+import { InstagramIcon } from "@/components/ui/social-icons";
 import { GALLERY_IMAGES, COMPANY } from "@/lib/constants";
 
 export default function GallerySection() {
@@ -32,7 +32,7 @@ export default function GallerySection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <PersonStandingIcon className="h-4 w-4" />
+              <InstagramIcon className="h-4 w-4" />
               Follow on Instagram
             </a>
           </Button>
