@@ -12,7 +12,7 @@ const quantico = Quantico({
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Strong Island Metal Works | Custom Metal Fabrication — Baldwin, NY",
+  title: "Strong Island Metal Works | Custom Metal Fabrication - Baldwin, NY",
   description:
     "Custom gates, railings, fencing, welding, and ornamental ironwork on Long Island. Strong Island Metal Works serves Nassau County and beyond.",
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Strong Island Metal Works",
     description:
-      "Custom metal fabrication — gates, railings, fencing, and ornamental ironwork on Long Island, NY.",
+      "Custom metal fabrication: gates, railings, fencing, and ornamental ironwork on Long Island, NY.",
     siteName: "Strong Island Metal Works",
     locale: "en_US",
     type: "website",

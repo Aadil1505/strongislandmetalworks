@@ -16,26 +16,26 @@ export default function GallerySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <div className="max-w-lg">
-            <p className="text-primary text-xs font-semibold tracking-[0.2em] uppercase mb-3">
-              Our Work
-            </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-              Recent Projects
-            </h2>
+          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
+            Our Work
+          </p>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
+            Recent Projects
+          </h2>
+          <div className="mt-6">
+            <Button variant="outline" asChild className="gap-2">
+              <a
+                href={COMPANY.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                Follow on Instagram
+              </a>
+            </Button>
           </div>
-          <Button variant="outline" asChild className="shrink-0 gap-2">
-            <a
-              href={COMPANY.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon className="h-4 w-4" />
-              Follow on Instagram
-            </a>
-          </Button>
         </motion.div>
 
         {/* Grid */}

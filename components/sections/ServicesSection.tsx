@@ -1,12 +1,29 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { BorderBeam } from "@/components/ui/border-beam";
+import Image from "next/image";
 import { SERVICES } from "@/lib/constants";
 
+type ServiceKey = "item-1" | "item-2" | "item-3" | "item-4" | "item-5" | "item-6";
+
+const SERVICE_META: Record<ServiceKey, { image: string; alt: string }> = {
+  "item-1": { image: "/pictures/one.jpg",   alt: "Custom gate fabrication" },
+  "item-2": { image: "/pictures/two.jpg",   alt: "Railings and handrails" },
+  "item-3": { image: "/pictures/three.jpg", alt: "Ornamental fencing" },
+  "item-4": { image: "/pictures/four.jpg",  alt: "Welding and fabrication" },
+  "item-5": { image: "/pictures/five.jpg",  alt: "Repairs and installation" },
+  "item-6": { image: "/pictures/six.jpg",   alt: "Ornamental ironwork" },
+};
+
 export default function ServicesSection() {
+  const [activeItem, setActiveItem] = useState<ServiceKey>("item-1");
+
   return (
-    <section id="services" className="py-28">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section id="services" className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 space-y-12 md:space-y-16">
 
         {/* Header */}
         <motion.div
@@ -14,61 +31,81 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex items-end justify-between pb-10 border-b border-border mb-14"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
-          <div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
-              What We Do
-            </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-              Services
-            </h2>
-          </div>
-          <span className="hidden md:block text-[11px] tracking-[0.2em] uppercase text-muted-foreground/40 pb-1">
-            {SERVICES.length} specialties
-          </span>
+          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
+            What We Do
+          </p>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight leading-tight text-foreground">
+            Services
+          </h2>
+          <p className="text-muted-foreground text-lg mt-4 leading-relaxed">
+            Every piece is measured, fabricated, and finished in-house. Built to your exact spec.
+          </p>
         </motion.div>
 
-        {/* List */}
+        {/* Accordion + Image */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
-          variants={{ visible: { transition: { staggerChildren: 0.06 } } }}
-          className="flex flex-col"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
+          className="grid gap-10 md:grid-cols-2 md:gap-16 items-start mt-0"
         >
-          {SERVICES.map((service, i) => (
-            <motion.div
-              key={service.title}
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } },
-              }}
-              className="group grid grid-cols-[2rem_1fr] md:grid-cols-[3.5rem_1fr_1fr] items-start gap-x-5 md:gap-x-8 py-7 border-b border-border/50 hover:bg-card/50 transition-colors duration-200 px-3 -mx-3 rounded-sm"
-            >
-              {/* Number */}
-              <span className="font-heading text-[11px] tracking-widest text-muted-foreground/25 group-hover:text-primary/60 transition-colors duration-200 tabular-nums pt-0.5">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+          {/* Accordion */}
+          <Accordion
+            type="single"
+            value={activeItem}
+            onValueChange={(v) => setActiveItem(v as ServiceKey)}
+            className="w-full"
+          >
+            {SERVICES.map((service, i) => {
+              const key = `item-${i + 1}` as ServiceKey;
+              return (
+                <AccordionItem key={key} value={key}>
+                  <AccordionTrigger className="text-left">
+                    <span className="text-base font-heading font-semibold">{service.title}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
 
-              {/* Title + description (mobile: stacked, desktop: title only here) */}
-              <div className="flex flex-col gap-1.5">
-                <h3 className="font-heading text-lg md:text-2xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors duration-200">
-                  {service.title}
-                </h3>
-                {/* Description visible on mobile only */}
-                <p className="md:hidden text-sm text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+          {/* Image panel */}
+          <div className="order-first md:order-last relative flex overflow-hidden rounded-2xl border border-border bg-background p-2 md:sticky md:top-28">
+            {/* Hatched side strip */}
+            <div className="absolute inset-0 right-0 ml-auto w-14 border-l border-border bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_8px)]" />
 
-              {/* Description — desktop column */}
-              <p className="hidden md:block text-base text-muted-foreground leading-relaxed pt-0.5">
-                {service.description}
-              </p>
+            <div className="relative w-[calc(3/4*100%+3rem)] rounded-xl overflow-hidden aspect-76/59 bg-muted">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeItem}
+                  initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={{ duration: 0.22 }}
+                  className="size-full rounded-xl overflow-hidden border border-border shadow-sm"
+                >
+                  <Image
+                    src={SERVICE_META[activeItem].image}
+                    alt={SERVICE_META[activeItem].alt}
+                    width={1207}
+                    height={929}
+                    className="size-full object-cover object-center"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-            </motion.div>
-          ))}
+            <BorderBeam
+              duration={6}
+              size={200}
+              className="from-transparent via-primary/60 to-transparent"
+            />
+          </div>
         </motion.div>
 
       </div>

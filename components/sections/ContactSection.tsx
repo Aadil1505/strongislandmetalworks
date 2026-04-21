@@ -47,7 +47,7 @@ export default function ContactSection() {
     e.preventDefault();
     // Compose a mailto link with form data
     const subject = encodeURIComponent(
-      `Quote Request — ${form.service || "General"}`
+      `Quote Request: ${form.service || "General"}`
     );
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\nMessage:\n${form.message}`
@@ -59,6 +59,25 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-28">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
+            Contact
+          </p>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
+            Get a Free Quote
+          </h2>
+          <p className="text-muted-foreground text-lg mt-4 leading-relaxed">
+            Tell us about your project and we'll get back to you within 24 hours with a detailed estimate.
+          </p>
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
           {/* Info side */}
           <motion.div
@@ -68,34 +87,18 @@ export default function ContactSection() {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="flex flex-col gap-8"
           >
-            <div>
-              <p className="text-primary text-xs font-semibold tracking-[0.2em] uppercase mb-3">
-                Contact
-              </p>
-              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight mb-4">
-                Get a Free Quote
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Tell us about your project and we'll get back to you within 24
-                hours with a detailed estimate.
-              </p>
-            </div>
-
             <div className="flex flex-col gap-5">
-              {/* Address */}
+              {/* Service Area */}
               <div className="flex items-start gap-4">
                 <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="h-4 w-4 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">
-                    Location
+                    Service Area
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {COMPANY.address.street}
-                    <br />
-                    {COMPANY.address.city}, {COMPANY.address.state}{" "}
-                    {COMPANY.address.zip}
+                    {COMPANY.serviceArea}
                   </p>
                 </div>
               </div>
@@ -141,15 +144,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Map embed placeholder */}
-            <div className="relative h-48 rounded-lg overflow-hidden bg-muted border border-border">
-              <iframe
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(COMPANY.address.full)}&output=embed&z=14`}
-                className="w-full h-full border-0 grayscale contrast-110"
-                loading="lazy"
-                title="Strong Island Metal Works location"
-              />
-            </div>
           </motion.div>
 
           {/* Form side */}
@@ -282,7 +276,7 @@ export default function ContactSection() {
                     required
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Describe your project — dimensions, materials, location, timeline..."
+                    placeholder="Describe your project: dimensions, materials, location, timeline..."
                     className="flex-1 min-h-24 rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none transition-shadow"
                   />
                 </div>

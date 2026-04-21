@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Custom metal fabrication on Long Island. Gates, railings, fencing,
-              and ornamental ironwork — built to last.
+              and ornamental ironwork, built to last.
             </p>
             <div className="flex gap-4 mt-2">
               <a
@@ -80,15 +80,9 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
-              Find Us
+              Service Area
             </p>
-            <address className="not-italic flex flex-col gap-2 text-sm text-muted-foreground">
-              <span>{COMPANY.address.street}</span>
-              <span>
-                {COMPANY.address.city}, {COMPANY.address.state}{" "}
-                {COMPANY.address.zip}
-              </span>
-            </address>
+            <p className="text-sm text-muted-foreground">{COMPANY.serviceArea}</p>
             <div className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
               <a
                 href={COMPANY.social.instagram}

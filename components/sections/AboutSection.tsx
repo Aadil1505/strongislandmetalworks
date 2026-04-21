@@ -31,21 +31,14 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex items-end justify-between pb-10 border-b border-border mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
-              Who We Are
-            </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-              Built on Long Island.
-              <br />
-              Built to Last.
-            </h2>
-          </div>
-          <span className="hidden md:block text-[11px] tracking-[0.2em] uppercase text-muted-foreground/40 pb-1">
-            Est. 2020
-          </span>
+          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
+            Who We Are
+          </p>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
+            Built on Long Island. Built to Last.
+          </h2>
         </motion.div>
 
         {/* Body */}
@@ -81,11 +74,11 @@ export default function AboutSection() {
             <p className="text-muted-foreground leading-relaxed text-base">
               Strong Island Metal Works is a Baldwin, NY based fabrication
               company specializing in custom metalwork for residential and
-              commercial clients across Long Island — from ornamental gates
+              commercial clients across Long Island, from ornamental gates
               and railings to structural steel and welding repairs.
               <br /><br />
               Every project starts with a site visit. We measure, fabricate,
-              and install from scratch. No off-the-shelf parts — everything
+              and install from scratch. No off-the-shelf parts. Everything
               is built to fit your space and stand up to the elements.
             </p>
 

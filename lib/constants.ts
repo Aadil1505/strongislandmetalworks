@@ -2,13 +2,7 @@ export const COMPANY = {
   name: "Strong Island Metal Works",
   tagline: "Precision metalwork crafted for Long Island.",
   shortName: "SIMW",
-  address: {
-    street: "10 South Drive",
-    city: "Baldwin",
-    state: "NY",
-    zip: "11510",
-    full: "10 South Drive, Baldwin, NY 11510",
-  },
+  serviceArea: "Serving the NYC & LI area",
   founded: 2020,
   social: {
     instagram: "https://www.instagram.com/strongislandmetalworks.llc/",
@@ -26,7 +20,7 @@ export const SERVICES = [
   {
     title: "Railings & Handrails",
     description:
-      "Interior and exterior rails built to code — functional, safe, and refined.",
+      "Interior and exterior rails built to code. Functional, safe, and refined.",
     icon: "ArrowUpFromLine",
   },
   {
