@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 export default function WhyUsSection() {
   return (
-    <section className="border-y border-border">
+    <section className="border-y border-border bg-card">
       <div className=" py-24">
         <div className="mx-auto w-full max-w-5xl px-6">
 

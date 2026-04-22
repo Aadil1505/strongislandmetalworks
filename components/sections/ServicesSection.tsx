@@ -22,7 +22,7 @@ export default function ServicesSection() {
   const [activeItem, setActiveItem] = useState<ServiceKey>("item-1");
 
   return (
-    <section id="services" className="py-24 md:py-32">
+    <section id="services" className="py-24 md:py-32 bg-card">
       <div className="max-w-6xl mx-auto px-6 md:px-10 space-y-12 md:space-y-16">
 
         {/* Header */}

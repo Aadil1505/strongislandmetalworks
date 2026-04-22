@@ -8,7 +8,7 @@ import { GALLERY_IMAGES, COMPANY } from "@/lib/constants";
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="py-28">
+    <section id="gallery" className="py-28 bg-card">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div

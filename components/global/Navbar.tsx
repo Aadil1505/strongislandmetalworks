@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 
 const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "SERVICES", href: "#services" },
+  { label: "ABOUT", href: "#about" },
+  { label: "GALLERY", href: "#gallery" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border"
+          ? "bg-card backdrop-blur-md border-b border-border"
           : "bg-transparent"
       )}
     >
@@ -42,7 +42,7 @@ export default function Navbar() {
             alt={COMPANY.name}
             width={32}
             height={32}
-            className="rounded-sm"
+            className="rounded-full"
           />
           <span className="font-heading text-sm font-semibold leading-tight text-foreground tracking-tight">
             Strong Island
@@ -54,20 +54,23 @@ export default function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
+            // <a
+            //   key={link.href}
+            //   href={link.href}
+            //   className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            // >
+            //   {link.label}
+            // </a>
+            <Link href={link.label} key={link.href} className="text-sm font-heading text-muted-foreground hover:text-foreground transition-colors duration-200">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button asChild size="sm">
-            <a href="#contact">Get a Quote</a>
+          <Button asChild>
+            <Link href="#contact">Get a Quote</Link>
           </Button>
         </div>
 
