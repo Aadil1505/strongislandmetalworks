@@ -26,7 +26,7 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-card">
 
-      <StripedPattern direction="right" className=" text-primary-foreground/10" width={14} height={14} />
+      <StripedPattern direction="right" className="z-0 text-primary-foreground/10" width={14} height={14} />
 
       {/* ── Desktop ── */}
       <div className="hidden md:grid md:grid-cols-2 h-dvh">
