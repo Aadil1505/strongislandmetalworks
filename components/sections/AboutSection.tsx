@@ -34,10 +34,10 @@ export default function AboutSection() {
           className="text-center max-w-2xl mx-auto mb-14"
         >
           <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
-            Who We Are
+            The Shop
           </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-            Built on Long Island. Built to Last.
+            Built in Baldwin. Built by Hand.
           </h2>
         </motion.div>
 
@@ -72,14 +72,13 @@ export default function AboutSection() {
             className="flex flex-col gap-10"
           >
             <p className="text-muted-foreground leading-relaxed text-base">
-              Strong Island Metal Works is a Baldwin, NY based fabrication
-              company specializing in custom metalwork for residential and
-              commercial clients across Long Island, from ornamental gates
-              and railings to structural steel and welding repairs.
+              Strong Island Metal Works opened in 2020 with one goal: build
+              quality metalwork that holds up. We handle every stage in-house,
+              from the first site visit to final installation. No subcontractors,
+              no off-the-shelf parts, no shortcuts.
               <br /><br />
-              Every project starts with a site visit. We measure, fabricate,
-              and install from scratch. No off-the-shelf parts. Everything
-              is built to fit your space and stand up to the elements.
+              We work with homeowners and contractors across Long Island, taking
+              on projects of all sizes with the same care and attention to detail.
             </p>
 
             {/* Facts list */}

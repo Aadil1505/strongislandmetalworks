@@ -10,12 +10,12 @@ import { SERVICES } from "@/lib/constants";
 type ServiceKey = "item-1" | "item-2" | "item-3" | "item-4" | "item-5" | "item-6";
 
 const SERVICE_META: Record<ServiceKey, { image: string; alt: string }> = {
-  "item-1": { image: "/pictures/one.jpg",   alt: "Custom gate fabrication" },
-  "item-2": { image: "/pictures/two.jpg",   alt: "Railings and handrails" },
-  "item-3": { image: "/pictures/three.jpg", alt: "Ornamental fencing" },
-  "item-4": { image: "/pictures/four.jpg",  alt: "Welding and fabrication" },
-  "item-5": { image: "/pictures/five.jpg",  alt: "Repairs and installation" },
-  "item-6": { image: "/pictures/six.jpg",   alt: "Ornamental ironwork" },
+  "item-1": { image: "/pictures/three.jpg",   alt: "Custom gate fabrication" },
+  "item-2": { image: "/pictures/four.jpg",   alt: "Railings and handrails" },
+  "item-3": { image: "/pictures/two.jpg", alt: "Ornamental fencing" },
+  "item-4": { image: "/pictures/weld.jpg",  alt: "Welding and fabrication" },
+  "item-5": { image: "/pictures/one.jpg",  alt: "Repairs and installation" },
+  "item-6": { image: "/pictures/five.jpg",   alt: "Ornamental ironwork" },
 };
 
 export default function ServicesSection() {
@@ -34,13 +34,13 @@ export default function ServicesSection() {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
-            What We Do
+            Fabricated in Baldwin
           </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight leading-tight text-foreground">
             Services
           </h2>
           <p className="text-muted-foreground text-lg mt-4 leading-relaxed">
-            Every piece is measured, fabricated, and finished in-house. Built to your exact spec.
+            Six services, one shop. Everything is built to fit your exact space, not pulled from a catalog.
           </p>
         </motion.div>
 

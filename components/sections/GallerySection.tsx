@@ -19,7 +19,7 @@ export default function GallerySection() {
           className="text-center max-w-2xl mx-auto mb-12"
         >
           <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">
-            Our Work
+            The Work
           </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
             Recent Projects
@@ -81,23 +81,6 @@ export default function GallerySection() {
           ))}
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-center text-sm text-muted-foreground mt-8"
-        >
-          See more of our work on{" "}
-          <a
-            href={COMPANY.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline"
-          >
-            Instagram
-          </a>
-        </motion.p>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ const SERVICES = [
 
 const STEPS = [
   { num: "01", title: "Submit your request", body: "Tell us about your project — service type, dimensions, and any details you have." },
-  { num: "02", title: "We review and follow up", body: "We'll reach out within 24 hours to confirm details and schedule a site visit if needed." },
+  { num: "02", title: "We review and follow up", body: "We will reach out to confirm details and schedule a site visit if needed." },
   { num: "03", title: "Receive your estimate", body: "You get a clear, itemized quote with no hidden fees before any work begins." },
 ];
 
@@ -59,12 +59,12 @@ export default function ContactSection() {
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">Contact</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary mb-3">Reach Out</p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
             Get a Free Quote
           </h2>
           <p className="text-muted-foreground text-lg mt-4 leading-relaxed">
-            Tell us about your project and we'll get back to you within 24 hours with a detailed estimate.
+            Tell us what you need. We will follow up within 24 hours.
           </p>
         </motion.div>
 
@@ -223,9 +223,6 @@ export default function ContactSection() {
                   Send Request
                 </Button>
 
-                <p className="text-center text-xs text-muted-foreground">
-                  We respond within 24 hours. No spam, ever.
-                </p>
               </form>
             )}
           </motion.div>

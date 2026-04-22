@@ -24,7 +24,7 @@ export default function Footer() {
                 alt={COMPANY.name}
                 width={36}
                 height={36}
-                className="rounded-sm"
+                className="rounded-full"
               />
               <span className="font-heading text-sm font-semibold leading-tight text-foreground">
                 Strong Island
@@ -33,8 +33,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Custom metal fabrication on Long Island. Gates, railings, fencing,
-              and ornamental ironwork, built to last.
+              Every job starts with a site visit. We measure, fabricate, and install from our Baldwin, NY shop.
             </p>
             <div className="flex gap-4 mt-2">
               <a

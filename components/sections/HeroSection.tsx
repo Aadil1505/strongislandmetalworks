@@ -4,6 +4,20 @@ import { useRef } from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { StripedPattern } from "@/components/magicui/striped-pattern";
+import { Marquee } from "@/components/ui/marquee";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+const SERVICES = [
+  "Custom Gates",
+  "Railings",
+  "Iron Fencing",
+  "Ornamental Ironwork",
+  "Steel Fabrication",
+  "Welding",
+  "Custom Metalwork",
+  "Driveway Gates",
+];
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -36,7 +50,7 @@ export default function HeroSection() {
           </motion.div>
 
           <div className="mb-8">
-            <div className="overflow-hidden">
+            <div>
               <motion.h1
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -47,7 +61,7 @@ export default function HeroSection() {
                 Strong
               </motion.h1>
             </div>
-            <div className="overflow-hidden">
+            <div>
               <motion.h1
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -77,7 +91,7 @@ export default function HeroSection() {
             transition={{ duration: 0.65, delay: 0.55 }}
             className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-10"
           >
-            Custom gates, railings, fencing, and ornamental ironwork. Precision fabricated on Long Island.
+            Steel fabricated to order. Every job starts with a site visit and ends with an install built to last.
           </motion.p>
 
           <motion.div
@@ -86,24 +100,20 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.65 }}
             className="flex items-center gap-3"
           >
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-6 py-3 rounded-sm hover:bg-primary/85 transition-colors duration-200"
-            >
-              Get a Free Quote
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-            <a
-              href="#gallery"
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground border border-border/60 px-6 py-3 rounded-sm hover:text-foreground hover:border-border transition-colors duration-200"
-            >
-              View Our Work
-            </a>
+            <Button size="lg" asChild>
+              <Link href="#contact">
+                Get a Free Quote
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="#gallery">View Our Work</Link>
+            </Button>
           </motion.div>
         </div>
 
         {/* Right — Video container */}
-        <div className="relative z-10 flex items-center justify-center p-8 xl:p-14">
+        <div className="relative z-10 flex flex-col items-center justify-center gap-3 p-8 xl:p-14">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -122,6 +132,24 @@ export default function HeroSection() {
               viewport={{ amount: 0.3 }}
             />
             <div className="absolute inset-0 bg-background/10" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="w-full overflow-hidden rounded-lg border border-border"
+          >
+            <Marquee className="py-2.5 [--duration:30s] [--gap:2.5rem] animate-pulse" repeat={4}>
+              {SERVICES.map((item) => (
+                <span key={item} className="flex items-center gap-2.5 shrink-0">
+                  <span className="text-primary text-[8px]">◆</span>
+                  <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-muted-foreground">
+                    {item}
+                  </span>
+                </span>
+              ))}
+            </Marquee>
           </motion.div>
         </div>
       </div>
@@ -159,7 +187,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-7"
         >
-          Custom gates, railings, fencing, and ornamental ironwork. Precision fabricated on Long Island.
+          Steel fabricated to order. Every job starts with a site visit and ends with an install built to last.
         </motion.p>
 
         <motion.div
@@ -168,26 +196,22 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex items-center gap-3 mb-8"
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-5 py-3 rounded-sm hover:bg-primary/85 transition-colors duration-200"
-          >
-            Get a Free Quote
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-          <a
-            href="#gallery"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground border border-border px-5 py-3 rounded-sm hover:text-foreground transition-colors duration-200"
-          >
-            Our Work
-          </a>
+          <Button size="lg" asChild className="p-5">
+            <Link href="#contact">
+              Get a Free Quote
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="#gallery">View Our Work</Link>
+          </Button>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.65 }}
-          className="relative aspect-video rounded-sm overflow-hidden border border-border/40 bg-muted"
+          className="relative aspect-video rounded-lg overflow-hidden border border-border/40 bg-muted"
         >
           <motion.video
             ref={mobileRef}
@@ -200,6 +224,24 @@ export default function HeroSection() {
             onViewportLeave={() => mobileRef.current?.pause()}
             viewport={{ amount: 0.3 }}
           />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="overflow-hidden rounded-sm border border-border/25 mt-3"
+        >
+          <Marquee className="py-2.5 [--duration:30s] [--gap:2.5rem] animate-pulse" repeat={4}>
+            {SERVICES.map((item) => (
+              <span key={item} className="flex items-center gap-2.5 shrink-0">
+                <span className="text-primary text-[8px]">◆</span>
+                <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-muted-foreground">
+                  {item}
+                </span>
+              </span>
+            ))}
+          </Marquee>
         </motion.div>
       </div>
 
