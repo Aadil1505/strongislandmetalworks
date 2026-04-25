@@ -6,8 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const FACTS = [
   { label: "Founded", value: "2020" },
-  { label: "Based in", value: "Baldwin, NY" },
-  { label: "Coverage", value: "Nassau & Suffolk County" },
+  { label: "Coverage", value: "NYC & Surrounding Area" },
   { label: "Entity", value: "NY State Licensed LLC" },
   { label: "Clients", value: "Residential & Commercial" },
 ];
@@ -37,7 +36,7 @@ export default function AboutSection() {
             The Shop
           </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-            Built in Baldwin. Built by Hand.
+            Built Tough By Hand.
           </h2>
         </motion.div>
 
@@ -77,8 +76,9 @@ export default function AboutSection() {
               from the first site visit to final installation. No subcontractors,
               no off-the-shelf parts, no shortcuts.
               <br /><br />
-              We work with homeowners and contractors across Long Island, taking
-              on projects of all sizes with the same care and attention to detail.
+              We work with homeowners and contractors across NYC and the
+              surrounding area, taking on projects of all sizes with the same
+              care and attention to detail.
             </p>
 
             {/* Facts list */}

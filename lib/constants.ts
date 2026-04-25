@@ -1,8 +1,8 @@
 export const COMPANY = {
   name: "Strong Island Metal Works",
-  tagline: "Precision metalwork crafted for Long Island.",
+  tagline: "Precision metalwork crafted for NYC & surrounding area.",
   shortName: "SIMW",
-  serviceArea: "Serving the NYC & LI area",
+  serviceArea: "Serving NYC & Surrounding Area",
   founded: 2020,
   social: {
     instagram: "https://www.instagram.com/strongislandmetalworks.llc/",
@@ -53,7 +53,7 @@ export const STATS = [
   { value: "6+", label: "Years in Business" },
   { value: "500+", label: "Projects Completed" },
   { value: "100%", label: "Custom Fabrication" },
-  { value: "LI", label: "Locally Owned" },
+  { value: "NY", label: "Locally Owned" },
 ];
 
 export const WHY_US = [
@@ -71,9 +71,9 @@ export const WHY_US = [
   },
   {
     icon: "MapPin",
-    title: "Local to Long Island",
+    title: "Local to New York",
     description:
-      "Based in Baldwin, NY. We serve Nassau, Suffolk, and the surrounding boroughs.",
+      "Based in Baldwin, NY. We serve NYC and the surrounding area.",
   },
   {
     icon: "Award",

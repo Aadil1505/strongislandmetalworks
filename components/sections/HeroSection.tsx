@@ -91,7 +91,7 @@ export default function HeroSection() {
             transition={{ duration: 0.65, delay: 0.55 }}
             className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-10"
           >
-            Steel fabricated to order. Every job starts with a site visit and ends with an install built to last.
+            Every job starts with a site visit and ends with an install built to last.
           </motion.p>
 
           <motion.div
@@ -187,7 +187,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-7"
         >
-          Steel fabricated to order. Every job starts with a site visit and ends with an install built to last.
+          Every job starts with a site visit and ends with an install built to last.
         </motion.p>
 
         <motion.div
